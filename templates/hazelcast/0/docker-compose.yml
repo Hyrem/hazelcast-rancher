@@ -6,7 +6,7 @@ services:
     image: hazelcast/hazelcast
     tty: true
     volumes:
-      - ~/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
+      - /templates/hazelcast/0/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
     environment:
       - JAVA_OPTS=-Dhazelcast.config=/etc/hazelcast/hazelcast.xml
     ports:
@@ -19,7 +19,7 @@ services:
     image: hazelcast/hazelcast
     tty: true
     volumes:
-      - ~/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
+      - /templates/hazelcast/0/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
     environment:
       - JAVA_OPTS=-Dhazelcast.config=/etc/hazelcast/hazelcast.xml
     ports:
@@ -33,7 +33,7 @@ services:
     image: hazelcast/hazelcast
     tty: true
     volumes:
-      - ~/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
+      - /templates/hazelcast/0/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
     environment:
       - JAVA_OPTS=-Dhazelcast.config=/etc/hazelcast/hazelcast.xml
     ports:
