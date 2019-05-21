@@ -1,11 +1,15 @@
-version: '2'
-services:
-  hazelcast1:
-    scale: 1
-    start_on_create: true
-  hazelcast2:
-    scale: 1
-    start_on_create: true
-  hazelcast3:
-    scale: 1
-    start_on_create: true
+.catalog:
+  name: "Hazelcast"
+  version: "3.12"
+  description: "In-Memory Data Grid"     
+  services:
+    hazelcast1:
+      scale: 1
+      start_on_create: true
+    hazelcast2:
+      scale: 1
+      start_on_create: true
+    hazelcast3:
+      scale: 1
+      start_on_create: true
+
