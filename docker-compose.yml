@@ -1,0 +1,41 @@
+version: '2'
+services:
+  hazelcast1:
+    hostname: hazelcast1
+    container_name: hazelcast1
+    image: hazelcast/hazelcast
+    tty: true
+    volumes:
+      - /tmp/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
+    environment:
+      - JAVA_OPTS=-Dhazelcast.config=/etc/hazelcast/hazelcast.xml
+    ports:
+      - 5701:5701
+
+
+  hazelcast2:
+    hostname: hazelcast2
+    container_name: hazelcast2
+    image: hazelcast/hazelcast
+    tty: true
+    volumes:
+      - /tmp/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
+    environment:
+      - JAVA_OPTS=-Dhazelcast.config=/etc/hazelcast/hazelcast.xml
+    ports:
+      - 5702:5701
+
+
+
+  hazelcast3:
+    hostname: hazelcast3
+    container_name: hazelcast3
+    image: hazelcast/hazelcast
+    tty: true
+    volumes:
+      - /tmp/hazelcast-server.xml:/etc/hazelcast/hazelcast.xml
+    environment:
+      - JAVA_OPTS=-Dhazelcast.config=/etc/hazelcast/hazelcast.xml
+    ports:
+      - 5703:5701
+
