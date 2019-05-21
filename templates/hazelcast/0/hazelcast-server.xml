@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hazelcast xmlns="http://www.hazelcast.com/schema/config"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.hazelcast.com/schema/config
+           http://www.hazelcast.com/schema/config/hazelcast-config-3.12.xsd">
+	<properties>
+		<property name="hazelcast.mancenter.enabled">false</property>
+		<property name="hazelcast.memcache.enabled">false</property>
+		<property name="hazelcast.wait.seconds.before.join">0</property>
+		<property name="hazelcast.shutdownhook.enabled">false</property>
+		<property name="hazelcast.heartbeat.interval.seconds">1</property>
+		<property name="hazelcast.max.no.heartbeat.seconds">5</property>
+		<property name="hazelcast.health.monitoring.delay.seconds">600</property>
+		<property name="hazelcast.rest.enabled">false</property >
+	</properties>
+	<group>
+		<name>inst-1</name>
+		<password>Oregano321</password>
+	</group>
+	<network>
+		<port auto-increment="true" port-count="10000">5701</port>
+		<outbound-ports>
+			<ports>0</ports>
+		</outbound-ports>
+		<join>
+			<multicast enabled="true">
+				<multicast-group>224.2.2.8</multicast-group>
+				<multicast-port>54328</multicast-port>
+			</multicast>
+		</join>
+		<interfaces enabled="true">
+			<interface>*.*.*.*</interface>
+		</interfaces>
+		<ssl enabled="false" />
+		<socket-interceptor enabled="false" />
+	</network>
+	<partition-group enabled="false" />
+	<executor-service name="default">
+		<pool-size>16</pool-size>
+		<queue-capacity>0</queue-capacity><!--Queue capacity. 0 means Integer.MAX_VALUE. -->
+	</executor-service>
+	<multimap name="__vertx.subs">
+		<backup-count>1</backup-count>
+	</multimap>
+	<!-- Used internally in Vert.x -->
+	<map name="__vertx.haInfo">
+		<backup-count>1</backup-count>
+		<time-to-live-seconds>0</time-to-live-seconds>
+		<max-idle-seconds>0</max-idle-seconds>
+		<eviction-policy>NONE</eviction-policy>
+		<max-size policy="PER_NODE">0</max-size>
+		<eviction-percentage>25</eviction-percentage>
+		<merge-policy>com.hazelcast.map.merge.LatestUpdateMapMergePolicy
+		</merge-policy>
+	</map>
+	<semaphore name="__vertx.*">
+		<initial-permits>1</initial-permits>
+	</semaphore>
+	<lite-member enabled="false" />
+</hazelcast>
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
